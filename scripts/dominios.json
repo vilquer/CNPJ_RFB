@@ -1,0 +1,42 @@
+{
+  "descricao_geral": "Todas as tabelas de domínio seguem o mesmo layout de 2 colunas: codigo, descricao. Cada uma vem em um zip próprio.",
+  "delimitador": ";",
+  "encoding": "latin-1",
+  "colunas": [
+    {
+      "nome": "codigo",
+      "tipo": "VARCHAR"
+    },
+    {
+      "nome": "descricao",
+      "tipo": "VARCHAR"
+    }
+  ],
+  "tabelas": {
+    "cnaes": {
+      "arquivo_origem": "Cnaes.zip",
+      "descricao": "Código e nome da atividade econômica (CNAE)"
+    },
+    "motivos": {
+      "arquivo_origem": "Motivos.zip",
+      "descricao": "Código e nome do motivo da situação cadastral"
+    },
+    "municipios": {
+      "arquivo_origem": "Municipios.zip",
+      "descricao": "Código e nome do município. Exibe sigla da UF junto no texto, ex: 'SAO PAULO - SP'"
+    },
+    "naturezas": {
+      "arquivo_origem": "Naturezas.zip",
+      "descricao": "Código e nome da natureza jurídica. Exemplos de texto: UNIÃO, DISTRITO FEDERAL, BAHIA"
+    },
+    "paises": {
+      "arquivo_origem": "Paises.zip",
+      "descricao": "Código e nome do país"
+    },
+    "qualificacoes": {
+      "arquivo_origem": "Qualificacoes.zip",
+      "descricao": "Código e nome da qualificação do sócio/responsável"
+    }
+  },
+  "encoding_nota": "Dado RFB e cp1252 na pratica, mas encodings ICU do DuckDB (ibm-1252/ibm-5348) decodificam errado; convert.py filtra bytes 0x80-0x9F na extracao e le com latin-1 nativo."
+}

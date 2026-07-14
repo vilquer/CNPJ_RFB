@@ -1,0 +1,75 @@
+{
+  "tabela": "socios",
+  "arquivos_origem": [
+    "Socios0.zip",
+    "Socios1.zip",
+    "Socios2.zip",
+    "Socios3.zip",
+    "Socios4.zip",
+    "Socios5.zip",
+    "Socios6.zip",
+    "Socios7.zip",
+    "Socios8.zip",
+    "Socios9.zip"
+  ],
+  "delimitador": ";",
+  "encoding": "latin-1",
+  "colunas": [
+    {
+      "nome": "cnpj_basico",
+      "tipo": "VARCHAR",
+      "descricao": "8 primeiros dígitos do CNPJ"
+    },
+    {
+      "nome": "identificador_socio",
+      "tipo": "VARCHAR",
+      "descricao": "1=pessoa jurídica, 2=pessoa física, 3=estrangeiro"
+    },
+    {
+      "nome": "nome_socio_razao_social",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "cpf_cnpj_socio",
+      "tipo": "VARCHAR",
+      "descricao": "JÁ VEM MASCARADO PELA RFB: 3 primeiros dígitos e 2 dígitos verificadores do CPF ocultos (art. 129 §2º Lei 13.473/2017). Sócio estrangeiro não tem esse campo."
+    },
+    {
+      "nome": "qualificacao_socio",
+      "tipo": "VARCHAR",
+      "descricao": "Código (join com qualificacoes.json)"
+    },
+    {
+      "nome": "data_entrada_sociedade",
+      "tipo": "VARCHAR",
+      "descricao": "Formato AAAAMMDD"
+    },
+    {
+      "nome": "pais",
+      "tipo": "VARCHAR",
+      "descricao": "Código país do sócio estrangeiro (join com paises.json)"
+    },
+    {
+      "nome": "representante_legal",
+      "tipo": "VARCHAR",
+      "descricao": "CPF do representante legal — MESMA MÁSCARA aplicada (3 primeiros + 2 verificadores ocultos)"
+    },
+    {
+      "nome": "nome_representante",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "qualificacao_representante_legal",
+      "tipo": "VARCHAR",
+      "descricao": "Código (join com qualificacoes.json)"
+    },
+    {
+      "nome": "faixa_etaria",
+      "tipo": "VARCHAR",
+      "descricao": "0=não se aplica, 1=0-12, 2=13-20, 3=21-30, 4=31-40, 5=41-50, 6=51-60, 7=61-70, 8=71-80, 9=80+"
+    }
+  ],
+  "encoding_nota": "Dado RFB e cp1252 na pratica, mas encodings ICU do DuckDB (ibm-1252/ibm-5348) decodificam errado; convert.py filtra bytes 0x80-0x9F na extracao e le com latin-1 nativo."
+}

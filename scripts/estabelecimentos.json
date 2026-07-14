@@ -1,0 +1,170 @@
+{
+  "tabela": "estabelecimentos",
+  "arquivos_origem": [
+    "Estabelecimentos0.zip",
+    "Estabelecimentos1.zip",
+    "Estabelecimentos2.zip",
+    "Estabelecimentos3.zip",
+    "Estabelecimentos4.zip",
+    "Estabelecimentos5.zip",
+    "Estabelecimentos6.zip",
+    "Estabelecimentos7.zip",
+    "Estabelecimentos8.zip",
+    "Estabelecimentos9.zip"
+  ],
+  "delimitador": ";",
+  "encoding": "latin-1",
+  "colunas": [
+    {
+      "nome": "cnpj_basico",
+      "tipo": "VARCHAR",
+      "descricao": "8 primeiros dígitos do CNPJ"
+    },
+    {
+      "nome": "cnpj_ordem",
+      "tipo": "VARCHAR",
+      "descricao": "Dígitos 9-12 do CNPJ (número do estabelecimento)"
+    },
+    {
+      "nome": "cnpj_dv",
+      "tipo": "VARCHAR",
+      "descricao": "Dígito verificador (2 últimos dígitos do CNPJ)"
+    },
+    {
+      "nome": "identificador_matriz_filial",
+      "tipo": "VARCHAR",
+      "descricao": "1=matriz, 2=filial"
+    },
+    {
+      "nome": "nome_fantasia",
+      "tipo": "VARCHAR",
+      "descricao": "Nome fantasia"
+    },
+    {
+      "nome": "situacao_cadastral",
+      "tipo": "VARCHAR",
+      "descricao": "01=nula, 2=ativa, 3=suspensa, 4=inapta, 08=baixada"
+    },
+    {
+      "nome": "data_situacao_cadastral",
+      "tipo": "VARCHAR",
+      "descricao": "Formato AAAAMMDD"
+    },
+    {
+      "nome": "motivo_situacao_cadastral",
+      "tipo": "VARCHAR",
+      "descricao": "Código (join com motivos.json)"
+    },
+    {
+      "nome": "nome_cidade_exterior",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "pais",
+      "tipo": "VARCHAR",
+      "descricao": "Código do país (join com paises.json)"
+    },
+    {
+      "nome": "data_inicio_atividade",
+      "tipo": "VARCHAR",
+      "descricao": "Formato AAAAMMDD"
+    },
+    {
+      "nome": "cnae_fiscal_principal",
+      "tipo": "VARCHAR",
+      "descricao": "Código CNAE (join com cnaes.json)"
+    },
+    {
+      "nome": "cnae_fiscal_secundaria",
+      "tipo": "VARCHAR",
+      "descricao": "ATENÇÃO: pode conter múltiplos códigos separados por vírgula dentro do próprio campo — precisa split() na hora de usar, não na hora de ingerir"
+    },
+    {
+      "nome": "tipo_logradouro",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "logradouro",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "numero",
+      "tipo": "VARCHAR",
+      "descricao": "'S/N' quando não preenchido"
+    },
+    {
+      "nome": "complemento",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "bairro",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "cep",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "uf",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "municipio",
+      "tipo": "VARCHAR",
+      "descricao": "Código (join com municipios.json)"
+    },
+    {
+      "nome": "ddd1",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "telefone1",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "ddd2",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "telefone2",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "ddd_fax",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "fax",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "correio_eletronico",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "situacao_especial",
+      "tipo": "VARCHAR",
+      "descricao": null
+    },
+    {
+      "nome": "data_situacao_especial",
+      "tipo": "VARCHAR",
+      "descricao": "Formato AAAAMMDD"
+    }
+  ],
+  "encoding_nota": "Dado RFB e cp1252 na pratica, mas encodings ICU do DuckDB (ibm-1252/ibm-5348) decodificam errado; convert.py filtra bytes 0x80-0x9F na extracao e le com latin-1 nativo."
+}

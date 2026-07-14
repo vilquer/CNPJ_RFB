@@ -1,0 +1,55 @@
+{
+  "tabela": "empresas",
+  "arquivos_origem": [
+    "Empresas0.zip",
+    "Empresas1.zip",
+    "Empresas2.zip",
+    "Empresas3.zip",
+    "Empresas4.zip",
+    "Empresas5.zip",
+    "Empresas6.zip",
+    "Empresas7.zip",
+    "Empresas8.zip",
+    "Empresas9.zip"
+  ],
+  "delimitador": ";",
+  "encoding": "latin-1",
+  "colunas": [
+    {
+      "nome": "cnpj_basico",
+      "tipo": "VARCHAR",
+      "descricao": "8 primeiros dígitos do CNPJ"
+    },
+    {
+      "nome": "razao_social",
+      "tipo": "VARCHAR",
+      "descricao": "Nome empresarial da pessoa jurídica"
+    },
+    {
+      "nome": "natureza_juridica",
+      "tipo": "VARCHAR",
+      "descricao": "Código da natureza jurídica (join com naturezas.json)"
+    },
+    {
+      "nome": "qualificacao_responsavel",
+      "tipo": "VARCHAR",
+      "descricao": "Código da qualificação da pessoa física responsável (join com qualificacoes.json)"
+    },
+    {
+      "nome": "capital_social",
+      "tipo": "VARCHAR",
+      "descricao": "Capital social da empresa — vem com vírgula decimal, converter depois"
+    },
+    {
+      "nome": "porte_empresa",
+      "tipo": "VARCHAR",
+      "descricao": "00=não informado, 01=micro, 03=pequeno porte, 05=demais"
+    },
+    {
+      "nome": "ente_federativo_responsavel",
+      "tipo": "VARCHAR",
+      "descricao": "Só preenchido para natureza jurídica grupo 1XXX; em branco nos demais casos"
+    }
+  ],
+  "encoding_nota": "Dado RFB e cp1252 na pratica, mas encodings ICU do DuckDB (ibm-1252/ibm-5348) decodificam errado; convert.py filtra bytes 0x80-0x9F na extracao e le com latin-1 nativo."
+}

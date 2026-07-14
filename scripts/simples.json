@@ -1,0 +1,46 @@
+{
+  "tabela": "simples",
+  "arquivos_origem": [
+    "Simples.zip"
+  ],
+  "delimitador": ";",
+  "encoding": "latin-1",
+  "colunas": [
+    {
+      "nome": "cnpj_basico",
+      "tipo": "VARCHAR",
+      "descricao": "8 primeiros dígitos do CNPJ"
+    },
+    {
+      "nome": "opcao_simples",
+      "tipo": "VARCHAR",
+      "descricao": "S=sim, N=não, em branco=outros"
+    },
+    {
+      "nome": "data_opcao_simples",
+      "tipo": "VARCHAR",
+      "descricao": "Formato AAAAMMDD"
+    },
+    {
+      "nome": "data_exclusao_simples",
+      "tipo": "VARCHAR",
+      "descricao": "Formato AAAAMMDD"
+    },
+    {
+      "nome": "opcao_mei",
+      "tipo": "VARCHAR",
+      "descricao": "S=sim, N=não, em branco=outros"
+    },
+    {
+      "nome": "data_opcao_mei",
+      "tipo": "VARCHAR",
+      "descricao": "Formato AAAAMMDD"
+    },
+    {
+      "nome": "data_exclusao_mei",
+      "tipo": "VARCHAR",
+      "descricao": "Formato AAAAMMDD"
+    }
+  ],
+  "encoding_nota": "Dado RFB e cp1252 na pratica, mas encodings ICU do DuckDB (ibm-1252/ibm-5348) decodificam errado; convert.py filtra bytes 0x80-0x9F na extracao e le com latin-1 nativo."
+}
