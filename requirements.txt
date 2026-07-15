@@ -1,0 +1,15 @@
+# Pipeline
+requests
+tqdm
+duckdb
+
+# App
+streamlit
+plotly
+
+# Notebooks (opcional)
+pandas
+matplotlib
+nbformat
+nbclient
+ipykernel
