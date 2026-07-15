@@ -110,7 +110,7 @@ aliases para grafias divergentes da RFB — ex.: PARATI→Paraty).
 ## Detalhes de implementação
 
 - **DuckDB, não pandas**: Estabelecimentos tem 71,9M de linhas; DuckDB converte
-  CSV→Parquet em streaming com `memory_limit` fixado, sem estourar RAM.
+  CSV→Parquet sem estourar RAM.
 - **Encoding**: os CSVs da RFB são cp1252 com bytes de lixo raros (0x80–0x9F);
   o convert.py filtra esses bytes na extração e lê com `latin-1` nativo
   (encodings ICU do DuckDB 1.5 decodificam errado — ver CLAUDE.md).
