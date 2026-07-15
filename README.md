@@ -25,14 +25,26 @@ pip install requests tqdm duckdb
 Ciclo completo de uma safra (mês):
 
 ```bash
-python scripts/download.py 2026-06     # baixa os 37 zips via WebDAV (~7,1 GB)
-python scripts/convert.py 2026-06      # extrai + converte pra Parquet particionado
+python scripts/download.py AAAA-MM     # baixa os 37 zips via WebDAV (~7,1 GB)
+python scripts/convert.py AAAA-MM      # extrai + converte pra Parquet particionado
 python scripts/criar_views.py          # cria/atualiza rfb.duckdb apontando pra safra
 ```
+### Baixando
+![Baixando](docs/img/download.png)
 
-Os três scripts são idempotentes: podem ser interrompidos e relançados que
-retomam de onde pararam (download pula arquivos completos, conversão pula
-partes já convertidas).
+### Convertendo
+![Convertendo](docs/img/convert.png)
+
+<!-- ## Criando Views
+![Criando Visões](docs/img/download.png) -->
+
+    Os três scripts são idempotentes: podem ser interrompidos e relançados que
+    retomam de onde pararam (download pula arquivos completos, conversão pula
+    partes já convertidas).
+
+
+
+
 
 ### Consultando
 
@@ -68,15 +80,6 @@ con.sql("""
 | `socios_completos` | 27,8M vínculos societários enriquecidos |
 | views base | `empresas`, `estabelecimentos`, `socios`, `simples`, `cnaes`, `motivos`, `municipios`, `naturezas`, `paises`, `qualificacoes` |
 
-## App (Streamlit)
-
-Interface local de consulta e dashboards sobre o `rfb.duckdb`:
-
-```bash
-pip install -r requirements.txt
-streamlit run app/Home.py
-```
-
 - **Home**: panorama Brasil (tiles, situação cadastral, ativos por UF, top CNAEs)
 - **Consulta CNPJ**: ficha completa por CNPJ (14 ou 8 dígitos, com/sem pontuação)
   ou busca por nome — quadro societário e demais estabelecimentos da empresa
@@ -96,9 +99,6 @@ aliases para grafias divergentes da RFB — ex.: PARATI→Paraty).
 │   ├── convert.py         # zips -> parquet/tabela=X/safra=Y/ via DuckDB
 │   ├── criar_views.py     # cria/atualiza rfb.duckdb (views + macros)
 │   └── *.json             # schemas de coluna por tabela (layout oficial da RFB)
-├── app/                   # app Streamlit (Home + 3 páginas, lib de queries cacheadas)
-├── apoio/
-│   └── ibge_regioes_br.csv        # município -> regiões IBGE (27 UFs + aliases RFB)
 ├── notebooks/
 │   ├── analise_exploratoria.ipynb  # EDA: situação, UF, CNAEs, aberturas/ano, porte, sócios
 │   └── analise_rs.ipynb            # recorte RS: regiões IBGE, sobrevivência, longevidade
